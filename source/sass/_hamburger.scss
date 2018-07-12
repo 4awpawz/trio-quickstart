@@ -1,0 +1,38 @@
+.hamburger-checkbox {
+    display: none;
+}
+
+.hamburger-checkbox:checked + * {
+    display: block;
+}
+
+.hamburger-helper {
+    height: 24px;
+}
+
+.hamburger {
+    margin-top: 12.5px;
+    background-color: #fff;
+    width: 16px;
+}
+
+.hamburger--right {
+    float: right;
+    overflow: hidden;
+}
+
+.hamburger__patty {
+    height: 3px;
+    margin: 3px 0;
+    background-color: #000;
+}
+
+.hamburger-icon__burger:last-child {
+    margin-bottom: 0;
+}
+
+@media (min-width: 640px) {
+    .hamburger-helper {
+        display: none;
+    }
+}
