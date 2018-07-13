@@ -1,28 +1,55 @@
-.quad {
-    margin-top: 40px;
-    display: flex;
-    flex-wrap: wrap;
-    width: 90vw;
-    height: calc(100vh - 83px);
+.three {
+    font-size: 1.5em;
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 3em;
 }
 
-.quad1, .quad2, .quad3, .quad4 {
-    width: 50%;
-    height: 50%;
+.three__html,
+.three__tri,
+.three__js,
+.three__css {
+    text-align: center;
 }
 
-.quad1 {
-    background-color: #f00;
+.three__html {
+    grid-column: 1 / 2;
+    grid-row: 1;
 }
 
-.quad2 {
-    background-color: #0f0;
+.three__css {
+    grid-column: 3 / 4;
+    grid-row: 1;
+    padding-left: 1em;
 }
 
-.quad3 {
-    background-color: #00f;
+.three__tri {
+    grid-column: 2 / 3;
+    grid-row: 2;
 }
 
-.quad4 {
-    background-color: #ff0;
+.three__js {
+    grid-column: 2 / 3;
+    grid-row: 3;
+}
+
+.three__3 {
+    // border-radius: 50%;
+    // text-align: center;
+    // display: inline-block;
+    display: block;
+    width: 1.5em;
+    margin: 0 auto;
+    background-color: rgba(142,36,170,1);
+    color: white;
+    border-radius: 50%;
+}
+
+@media (min-width: 640px) {
+    .three {
+        font-size: 3em;
+        width: initial;
+        grid-row-gap: 2em;
+    }
 }
