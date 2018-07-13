@@ -1,0 +1,28 @@
+.quad {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 90vw;
+    height: calc(100vh - 83px);
+}
+
+.quad1, .quad2, .quad3, .quad4 {
+    width: 50%;
+    height: 50%;
+}
+
+.quad1 {
+    background-color: #f00;
+}
+
+.quad2 {
+    background-color: #0f0;
+}
+
+.quad3 {
+    background-color: #00f;
+}
+
+.quad4 {
+    background-color: #ff0;
+}

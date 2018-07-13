@@ -1,32 +1,19 @@
 .header-container {
     padding: 20px 0;
-    overflow: hidden;
     line-height: 1;
     border-bottom: 1px solid rgba(0, 0, 0, 0.45);
 }
 
 .header__promo {
     display: inline-block;
-    font-family: "Roboto", sans-serif;
-    font-size: 36px;
     color: #000;
 }
 
-.header__promo-graphic {
-    display: block;
-    background-color: #000;
-    color: #fff;
-    text-align: center;
-    border-radius: 3px;
-    float: left;
-    padding: 5px 10px;
-    font-size: 2rem;
-}
-
 .header__promo-text {
-    margin-left: 5px;
+    font-family: 'Mr Dafoe', cursive;
+    font-size: 72px;
     display: inline-block;
-    vertical-align: middle;
+    color: rgba(128, 0, 128, 1);
 }
 
 .header__nav {
@@ -59,8 +46,8 @@
 
 .header__nav-item-link {
     text-decoration: none;
-    color: #000;
-    color: rgba(0, 0, 0, 0.45);
+    text-transform: uppercase;
+    color: rgba(128, 0, 128, 0.65);
     display: inline-block;
     width: 100%;
 }
@@ -78,15 +65,18 @@
     .header__promo {
         display: inline-block;
     }
+
     .header__nav {
         display: block;
         overflow: hidden;
         line-height: 42px;
-        width: 100%;
-        position: absolute;
-        left: 0;
-        top: 25px;
+        width: initial;
+        position: relative;
+        float: right;
+        right: 0;
+        top: 17px;
     }
+
     .header__nav-items {
         display: block;
         margin: 0;
@@ -94,11 +84,13 @@
         text-align: center;
         width: 100%;
     }
+    
     .header__nav-item {
         display: inline-block;
         width: initial;
         padding: 0;
     }
+    
     .header__nav-item:last-child {
         margin-right: 0;
     }
