@@ -1,5 +1,5 @@
 {
     "beautifyHTML": true,
-    "baseUrl": "",
+    "baseUrl": "/trioiopages",
     "manifest": true
 }
