@@ -8,5 +8,3 @@ category:
   - Web Development
   - HTML
 -->
-
-# My Second Blog Article

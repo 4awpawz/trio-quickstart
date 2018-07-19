@@ -3,10 +3,8 @@ description: blog article
 template: article.html
 appendToTarget: true
 name: index.html
-title: My Second Blog
+title: My Fourth Blog
 category:
   - Web Development
   - JavaScript
 -->
-
-# My Second Blog Article
