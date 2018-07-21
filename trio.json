@@ -1,5 +1,6 @@
 {
     "beautifyHTML": true,
     "baseUrl": "/trioiopages",
-    "manifest": true
+    "manifest": true,
+    "paginate": 5
 }
