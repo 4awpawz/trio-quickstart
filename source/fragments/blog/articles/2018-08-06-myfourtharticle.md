@@ -2,7 +2,7 @@
 description: blog article
 template: article.html
 appendToTarget: true
-title: My Fourth Blog
+title: My Sixth Blog
 category:
   - Web Development
   - JavaScript
