@@ -35,15 +35,13 @@
 }
 
 .three__3 {
-    // border-radius: 50%;
-    // text-align: center;
-    // display: inline-block;
     display: block;
     width: 1.5em;
     margin: 0 auto;
     background-color: rgba(142,36,170,1);
     color: white;
     border-radius: 50%;
+    box-shadow: 1px 1px 10px #8e24aa;
 }
 
 @media (min-width: 640px) {

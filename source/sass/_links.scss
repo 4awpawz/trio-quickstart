@@ -1,0 +1,9 @@
+.prev-page, .next-page {
+    display: inlin-block;
+    padding: 10px;
+    color: $default-text-color;
+}
+
+.prev-page--hidden, .next-page--hidden {
+    display: none;
+}
