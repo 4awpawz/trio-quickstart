@@ -2,5 +2,12 @@
     "beautifyHTML": true,
     "baseUrl": "/trioiopages",
     "manifest": true,
-    "paginate": 5
+    "paginate": 5,
+    "personalization": {
+        "name": "Jeffrey Schwartz",
+        "twitter": "@jefftschwartz",
+        "github": "4awpawz",
+        "npm": "4awpawz",
+        "bio": "Husband, Father, Cat Wsiperer, Libertarian, JavaScript Junkie, Web Developer"
+    }
 }

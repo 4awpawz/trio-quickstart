@@ -3,7 +3,7 @@ const { join, normalize } = require("path");
 module.exports = ($, frag, siteMetaData) => {
     frag.articles
         .forEach(article =>
-            $("ul.articles")
+            $("ul.blog__articles")
                 .append(`<li><a data-trio-link href="${article.url}">${article.title}</a></li>`)
         );
     const $prevAnchorTag = $("a.prev-page");
@@ -18,4 +18,9 @@ module.exports = ($, frag, siteMetaData) => {
     } else {
         $nextAnchorTag.addClass("next-page--hidden")
     }
+    const $target = $("ul.blog__tags-list");
+    const categories = siteMetaData.categoryCatalog
+        .map(item => item.category)
+        .sort();
+    categories.forEach(item => $target.append(`<li class="blog__tags-list-item">${item}</li>`));
 };
