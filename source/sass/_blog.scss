@@ -21,9 +21,10 @@
 
 .blog__articles {
     margin: 0;
+    list-style: none;
 }
 
-.blog__related-articles-title, .blog__tags-title {
+.blog__tags-title {
     font-size: 1rem;
     font-weight: normal;
 }
@@ -44,10 +45,6 @@
         grid-column: 1 / 2;
         grid-row: 3 / 4;
         display: grid;
-    }
-    .blog__related-articles {
-    }
-    .blog__tags {
     }
     .blog__tags-title {
     }

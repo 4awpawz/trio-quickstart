@@ -1,11 +1,13 @@
-const { join, normalize } = require("path");
+const { sep } = require("path");
 
 module.exports = ($, frag, siteMetaData) => {
+    // articles list
     frag.articles
         .forEach(article =>
             $("ul.blog__articles")
                 .append(`<li><a data-trio-link href="${article.url}">${article.title}</a></li>`)
         );
+    // blog page links
     const $prevAnchorTag = $("a.prev-page");
     const $nextAnchorTag = $("a.next-page");
     if (frag.prevPageUrl) {
@@ -18,9 +20,12 @@ module.exports = ($, frag, siteMetaData) => {
     } else {
         $nextAnchorTag.addClass("next-page--hidden")
     }
+    // categories list
     const $target = $("ul.blog__tags-list");
-    const categories = siteMetaData.categoryCatalog
-        .map(item => item.category)
-        .sort();
-    categories.forEach(item => $target.append(`<li class="blog__tags-list-item">${item}</li>`));
+    siteMetaData.categoryCatalog
+        .sort((a, b) => a.category.localeCompare(b.category))
+        .forEach(item => {
+            const fixedCategory = item.category.replace(" ", "");
+            $target.append(`<li class="blog__tags-list-item"><a data-trio-link href="${sep}blog${sep}${fixedCategory}">${item.category}</a></li>`);
+        });
 };
