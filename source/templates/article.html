@@ -14,10 +14,20 @@
 
 <body>
     <header data-trio-include="header.html"></header>
-    <main class="container">
-        <div class="breadcrumbs"></div>
-        <h1></h1>
-        <div data-trio-fragment-body></div>
+    <main class="container article">
+        <!-- <div class="breadcrumbs"></div> -->
+        <h1 class="article__title"></h1>
+        <div class="article__date"></div>
+        <img class="article__image" src="" alt="">
+        <div class="article__subtitle"></div>
+        <article class="article__story" data-trio-fragment-body>
+        </article>
+        <div class="article__metadata">
+            <div class="article__tags">
+                <h2 class="article__tags-title">Tags</h2>
+                <ul class="article__tags-list"></ul>
+            </div>
+        </div>
     </main>
 </body>
 

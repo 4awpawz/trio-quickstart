@@ -21,6 +21,7 @@
 
 .blog__articles {
     margin: 0;
+    padding: 0;
     list-style: none;
 }
 
@@ -29,9 +30,15 @@
     font-weight: normal;
 }
 
+.blog__tags-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 @media (min-width: 640px) {
     .blog {
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 1fr 4fr;
     }
     .blog__title {
         grid-column: 1 / 3;
@@ -45,14 +52,5 @@
         grid-column: 1 / 2;
         grid-row: 3 / 4;
         display: grid;
-    }
-    .blog__tags-title {
-    }
-    .blog__tags-list {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-    .blog__tags-list-item {
     }
 }

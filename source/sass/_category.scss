@@ -1,4 +1,9 @@
 .category {
     text-align: center;
-    grid-column: 1 / 3;
+}
+
+@media (min-width: 640px) {
+    .category {
+        grid-column: 1 / 3;
+    }
 }
