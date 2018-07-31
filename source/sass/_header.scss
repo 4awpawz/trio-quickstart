@@ -1,4 +1,5 @@
 $color: #000;
+
 .header-mobile-hamburger {
     animation: animate-opacity $opacity-animation-duration;
 }
@@ -43,16 +44,14 @@ $color: #000;
 }
 
 .header__nav-item--active::after {
-    // border-radius: 5px;
-    // border-right: 1px solid $active-header-item-color;
     content: "";
     display: block;
     overflow: hidden;
     position: absolute;
-    border: 1px solid  $active-header-item-color;
     border-radius: 5px;
-    width: 4px;
+    width: 2px;
     height: 100%;
+    margin: auto 0;
     background-color: $active-header-item-color;
     top: 0;
     right: 0;
@@ -120,11 +119,8 @@ $color: #000;
         margin-right: 0;
     }
     .header__nav-item--active::after {
-        // border-right: none;
-        // border-bottom: 10px solid $active-header-item-color;
-        // left: 0;
         width: 100%;
-        height: 4px;
+        height: 2px;
         top: initial;
         bottom: 0;
     }
