@@ -7,7 +7,7 @@
 }
 
 .article__title {
-    font-size: 3.5em;
+    font-size: 2rem;
     text-align: center;
 }
 
@@ -109,6 +109,7 @@
         grid-template-columns: 1fr 4fr;
     }
     .article__title {
+        font-size: 3.5em;
         grid-row: 1 / 2;
         grid-column: 1 / 3;
     }
