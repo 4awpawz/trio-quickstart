@@ -1,9 +1,6 @@
 const { sep } = require("path");
 
-// const tagsSort = (a, b) => a.category.localeCompare(b.category);
-
 const fillTagsList = ($target, data) => {
-    // data.sort(tagsSort)
     data.sort()
         .forEach(item => {
             const fixedCategory = item.replace(" ", "");
