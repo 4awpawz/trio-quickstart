@@ -3,7 +3,7 @@ description: blog article
 template: article.html
 appendToTarget: true
 title: The Power of Three
-subtitle: The inherent power of using HTML, JavaScript and CSS
+subtitle: HTML, JavaScript and CSS
 image: media/html_css_js.png
 category:
   - Trio

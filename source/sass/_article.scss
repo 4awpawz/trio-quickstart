@@ -3,11 +3,36 @@
     grid-template-rows: auto;
     grid-template-columns: 1fr;
     grid-gap: 10px;
+    color: $default-text-color;
 }
 
 .article__title {
-    font-size: 2.3em;
+    font-size: 3.5em;
     text-align: center;
+}
+
+.article__subtitle {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.article__subtitle::before {
+    content: open-quote;
+    font-size: 2rem;
+    position: relative;
+    top: 10px;
+    left: 0;
+    margin: 3px;
+}
+
+.article__subtitle::after {
+    content: close-quote;
+    font-size: 2rem;
+    position: relative;
+    top: 10px;
+    left: -5px;
+    margin: 3px;
 }
 
 .article__date {
@@ -19,31 +44,64 @@
     content: "";
     display: block;
     width: 2rem;
-    height: 1px;
+    height: 2px;
     background-color: $default-text-color;
     margin: 0 auto;
+}
+
+.article__image-container {
+    width: 100%;
+    background-color: $color;
+    border-radius: 3px;
 }
 
 .article__image {
     display: block;
     width: 250px;
-    margin: 0 auto;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 3px;
 }
 
 .article__story {
     margin: 0;
-    padding: 0;
 }
 
+.article__related-articles,
+.article__tags {
+    margin-bottom: 1rem;
+}
+
+.article__related-articles-title,
 .article__tags-title {
-    font-size: 1rem;
+    font-size: .8rem;
     font-weight: normal;
+    text-align: center;
+    text-decoration: underline;
 }
 
+.article__related-articles-list,
 .article__tags-list {
     list-style: none;
     margin: 0;
     padding: 0;
+    font-size: .9rem;
+}
+
+.article__tags-list-item:hover,
+.article__related-articles-list-item:hover {
+    background-color: $hover-bg-color;
+}
+
+.article__link {
+    display: inline-block;
+    width: 100%;
+    color: $color;
+    text-decoration: none;
+}
+
+.article__link--small {
+    font-size: .9rem;
 }
 
 @media (min-width: 640px) {
@@ -58,27 +116,29 @@
         grid-row: 2 / 3;
         grid-column: 1 / 3;
     }
-    .article__image {
-        width: 300px;
+    .article__image-container {
         grid-row: 3 /4;
         grid-column: 1 / 3;
+    }
+    .article__image {
+        width: 300px;
+        margin: 50px auto;
     }
     .article__subtitle {
         grid-row: 4 / 5;
         grid-column: 1 / 3;
-        text-align: center;
-        font-style: italic;
-    }
-    .article__subtitle::before, .article__subtitle::after {
-        content: "\"";
+        margin-bottom: 30px;
     }
     .article__metadata {
         grid-row: 5 / 6;
         grid-column: 1 / 2;
-        display: grid;
+        padding-right: 10px;
+        border-right: 1px solid rgba(#6f9798, .35);
+        text-align: center;
     }
     .article__story {
         grid-row: 5 / 6;
         grid-column: 2 / 3;
+        padding-left: 10px;
     }
 }

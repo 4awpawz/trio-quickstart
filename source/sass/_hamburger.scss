@@ -1,3 +1,6 @@
+$color: #000;
+$bgcolor: #fff;
+
 .hamburger-checkbox {
     display: none;
 }
@@ -12,7 +15,7 @@
 
 .hamburger {
     margin-top: 12.5px;
-    background-color: #fff;
+    background-color: $bgcolor;
     width: 32px;
 }
 
@@ -24,7 +27,7 @@
 .hamburger__patty {
     height: 3px;
     margin: 5px 0;
-    background-color: rgb(128, 0, 128);
+    background-color: $color;
 }
 
 .hamburger-icon__burger:last-child {

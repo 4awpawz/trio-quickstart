@@ -1,6 +1,17 @@
 const { sep } = require("path");
 
-module.exports = ($, frag, siteMetaData) => {
+// const tagsSort = (a, b) => a.category.localeCompare(b.category);
+
+const fillTagsList = ($target, data) => {
+    // data.sort(tagsSort)
+    data.sort()
+        .forEach(item => {
+            const fixedCategory = item.replace(" ", "");
+            $target.append(`<li class="article__tags-list-item"><a class="article__link article__link--small "data-trio-link href="${sep}blog${sep}${fixedCategory}">${item}</a></li>`);
+        });
+};
+
+module.exports = ($, frag, siteMetadata) => {
     $("h1.article__title").append(frag.title);
     $("div.article__date").append(frag.articleDate);
     $("div.breadcrumbs").append(`<a data-trio-link href="${frag.blogPageUrl}">${frag.blogPageUrl}</a>`);
@@ -12,12 +23,29 @@ module.exports = ($, frag, siteMetaData) => {
     } else {
         $("div.article__subtitle").css("visibility", "hidden");
     }
-    // categories list
-    const $target = $("ul.article__tags-list");
-    siteMetaData.categoryCatalog
-        .sort((a, b) => a.category.localeCompare(b.category))
+    // related articles list
+    const relatedArticlesSet = new Set();
+    frag.relatedArticlesByCategory.forEach(item =>
+        item.related.forEach(related =>
+            relatedArticlesSet.add(`${related.url}\n${related.title}\n${related.excerpt}`)));
+    const $relatedArticlesList = $("ul.article__related-articles-list");
+    Array.from(relatedArticlesSet)
+        .map(item => {
+            const parts = item.split("\n");
+            return {
+                url: parts[0],
+                title: parts[1],
+                excerpt: parts[2]
+            }
+        })
+        .sort((a, b) => a.title.localeCompare(b.title))
         .forEach(item => {
-            const fixedCategory = item.category.replace(" ", "");
-            $target.append(`<li class="article__tags-list-item"><a data-trio-link href="${sep}blog${sep}${fixedCategory}">${item.category}</a></li>`);
+            $relatedArticlesList
+                .append(`<li class="article__related-articles-list-item"><a class="article__link article__link--small" data-trio-link href="${item.url}">${item.title}<br>${item.excerpt}</a>`);
         });
+    // categories lists
+    const $articleTagList = $("div.article__tags").find("ul.article__tags-list");
+    fillTagsList($articleTagList, frag.category);
+    const $allTagsList = $("div.article__all-tags").find("ul.article__tags-list");
+    fillTagsList($allTagsList, siteMetadata.categoryCatalog.map(item => item.category));
 };
