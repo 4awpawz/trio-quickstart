@@ -44,7 +44,7 @@
     box-shadow: 1px 1px 10px #8e24aa;
 }
 
-@media (min-width: 640px) {
+@media (min-width: $breakpoint) {
     .three {
         font-size: 3em;
         width: initial;

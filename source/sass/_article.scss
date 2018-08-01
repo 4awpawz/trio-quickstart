@@ -107,9 +107,9 @@
     font-size: .9rem;
 }
 
-@media (min-width: 640px) {
+@media (min-width: $breakpoint) {
     .article {
-        grid-template-columns: 1fr 4fr;
+        grid-template-columns: 1fr 3fr;
     }
     .article__banner {
         grid-row: 1 / 2;
@@ -138,6 +138,6 @@
     .article__story {
         grid-row: 3 / 4;
         grid-column: 2 / 3;
-        padding-left: 10px;
+        padding-left: 4rem;
     }
 }

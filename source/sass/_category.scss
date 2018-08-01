@@ -2,7 +2,7 @@
     text-align: center;
 }
 
-@media (min-width: 640px) {
+@media (min-width: $breakpoint) {
     .category {
         grid-column: 1 / 3;
     }

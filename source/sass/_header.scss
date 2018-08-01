@@ -88,7 +88,7 @@ $color: #000;
     }
 }
 
-@media (min-width: 640px) {
+@media (min-width: $breakpoint) {
     .header__promo {
         display: inline-block;
     }

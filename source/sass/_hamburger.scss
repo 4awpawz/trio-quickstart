@@ -34,7 +34,7 @@ $bgcolor: #fff;
     margin-bottom: 0;
 }
 
-@media (min-width: 640px) {
+@media (min-width: $breakpoint) {
     .hamburger-helper {
         display: none;
     }
