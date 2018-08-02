@@ -2,11 +2,13 @@ const { sep } = require("path");
 
 module.exports = ($, frag, siteMetaData) => {
     // articles list
-    frag.articles
-        .forEach(article =>
-            $("ul.blog__articles")
-                .append(`<li><a data-trio-link href="${article.url}">${article.title}</a></li>`)
-        );
+    if (frag.articles) {
+        frag.articles
+            .forEach(article =>
+                $("ul.blog__articles")
+                    .append(`<li><a data-trio-link href="${article.url}">${article.title}</a></li>`)
+            );
+    }
     // blog page links
     const $prevAnchorTag = $("a.prev-page");
     const $nextAnchorTag = $("a.next-page");
