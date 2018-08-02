@@ -4,7 +4,6 @@ template: article.html
 appendToTarget: true
 title: My Fifth Blog
 activeHeaderItem: 3
-wip: true
 callback:
   - article.js
   - showCurrentPageInHeader.js
