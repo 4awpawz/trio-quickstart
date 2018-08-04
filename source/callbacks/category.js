@@ -1,5 +1,3 @@
-const { sep } = require("path");
-
 module.exports = ($, frag, siteMetaData) => {
     // category under title
     $("div.category").append(frag.forCategory);
@@ -16,6 +14,6 @@ module.exports = ($, frag, siteMetaData) => {
         .sort((a, b) => a.category.localeCompare(b.category))
         .forEach(item => {
             const fixedCategory = item.category.replace(" ", "");
-            $target.append(`<li class="blog__tags-list-item"><a data-trio-link href="${sep}blog${sep}${fixedCategory}">${item.category}</a></li>`);
+            $target.append(`<li class="blog__tags-list-item"><a data-trio-link href="/${siteMetaData.userConfig.blogFolderName}/${fixedCategory}">${item.category}</a></li>`);
         });
 };

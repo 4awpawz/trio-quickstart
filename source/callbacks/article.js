@@ -1,10 +1,8 @@
-const { sep } = require("path");
-
-const fillTagsList = ($target, data) => {
+const fillTagsList = ($target, data, blogFolderName) => {
     data.sort()
         .forEach(item => {
             const fixedCategory = item.replace(" ", "");
-            $target.append(`<li class="article__tags-list-item"><a class="article__link article__link--small "data-trio-link href="${sep}blog${sep}${fixedCategory}">${item}</a></li>`);
+            $target.append(`<li class="article__tags-list-item"><a class="article__link article__link--small "data-trio-link href="/${blogFolderName}/${fixedCategory}">${item}</a></li>`);
         });
 };
 
@@ -42,7 +40,7 @@ module.exports = ($, frag, siteMetadata) => {
         });
     // categories lists
     const $articleTagList = $("div.article__tags").find("ul.article__tags-list");
-    fillTagsList($articleTagList, frag.category);
+    fillTagsList($articleTagList, frag.category, siteMetadata.userConfig.blogFolderName);
     const $allTagsList = $("div.article__all-tags").find("ul.article__tags-list");
-    fillTagsList($allTagsList, siteMetadata.categoryCatalog.map(item => item.category));
+    fillTagsList($allTagsList, siteMetadata.categoryCatalog.map(item => item.category), siteMetadata.userConfig.blogFolderName);
 };
