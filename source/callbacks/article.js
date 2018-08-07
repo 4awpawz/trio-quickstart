@@ -42,5 +42,5 @@ module.exports = ($, frag, siteMetadata) => {
     const $articleTagList = $("div.article__tags").find("ul.article__tags-list");
     fillTagsList($articleTagList, frag.category, siteMetadata.userConfig.blogFolderName);
     const $allTagsList = $("div.article__all-tags").find("ul.article__tags-list");
-    fillTagsList($allTagsList, siteMetadata.categoryCatalog.map(item => item.category), siteMetadata.userConfig.blogFolderName);
+    fillTagsList($allTagsList, siteMetadata.sortedCategoryCatalog.map(item => item.category), siteMetadata.userConfig.blogFolderName);
 };

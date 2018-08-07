@@ -22,8 +22,7 @@ module.exports = ($, frag, siteMetaData) => {
     }
     // categories list
     const $target = $("ul.blog__tags-list");
-    siteMetaData.categoryCatalog
-        .sort((a, b) => a.category.localeCompare(b.category))
+    siteMetaData.sortedCategoryCatalog
         .forEach(item => {
             const fixedCategory = item.category.replace(" ", "");
             $target.append(`<li class="blog__tags-list-item"><a data-trio-link href="/${siteMetaData.userConfig.blogFolderName}/${fixedCategory}">${item.category}</a></li>`);

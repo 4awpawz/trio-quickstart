@@ -2,7 +2,7 @@ module.exports = ($, frag, siteMetaData) => {
     // category under title
     $("div.category").append(frag.forCategory);
     // articles list
-    const cat = siteMetaData.categoryCatalog.filter(item =>
+    const cat = siteMetaData.sortedCategoryCatalog.filter(item =>
         item.category === frag.forCategory);
     cat[0].related.forEach(item => {
         $("ul.blog__articles")
@@ -10,8 +10,7 @@ module.exports = ($, frag, siteMetaData) => {
     });
     // categories list
     const $target = $("ul.blog__tags-list");
-    siteMetaData.categoryCatalog
-        .sort((a, b) => a.category.localeCompare(b.category))
+    siteMetaData.sortedCategoryCatalog
         .forEach(item => {
             const fixedCategory = item.category.replace(" ", "");
             $target.append(`<li class="blog__tags-list-item"><a data-trio-link href="/${siteMetaData.userConfig.blogFolderName}/${fixedCategory}">${item.category}</a></li>`);

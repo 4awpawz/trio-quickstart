@@ -1,4 +1,5 @@
 {
+    "blogFolderName": "trioblog",
     "beautifyHTML": true,
     "baseUrl": "/trioiopages",
     "manifest": true,
