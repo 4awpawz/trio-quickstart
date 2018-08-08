@@ -6,4 +6,7 @@ activeHeaderItem: 2
 callback: showCurrentPageInHeader.js
 -->
 
-<h1>Docs</h1>
+# Docs
+
+Trio documentation can be found [here](https://github.com/4awpawz/trio).
+
