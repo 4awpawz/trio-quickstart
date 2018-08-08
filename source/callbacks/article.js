@@ -1,17 +1,20 @@
+const { sep } = require("path");
+
 const fillTagsList = ($target, data, blogFolderName) => {
     data.sort()
         .forEach(item => {
             const fixedCategory = item.replace(" ", "");
-            $target.append(`<li class="article__tags-list-item"><a class="article__link article__link--small "data-trio-link href="/${blogFolderName}/${fixedCategory}">${item}</a></li>`);
+            $target.append(`<li class="article__tags-list-item"><a class="article__link article__link--small "data-trio-link href="${sep}${blogFolderName}${sep}${fixedCategory}">${item}<${sep}a><${sep}li>`);
         });
 };
 
 module.exports = ($, frag, siteMetadata) => {
     $("h1.article__title").append(frag.title);
     $("div.article__date").append(frag.articleDate);
-    $("div.breadcrumbs").append(`<a data-trio-link href="${frag.blogPageUrl}">${frag.blogPageUrl}</a>`);
+    $("div.breadcrumbs").append(`<a data-trio-link href="${frag.blogPageUrl}">${frag.blogPageUrl}<${sep}a>`);
     if (frag.matter.data.image) {
-        $("img.article__image").attr("src", `/media/html_css_js.png`);
+        console.log(frag.matter.data.image);
+        $("img.article__image").attr("src", `${sep}media${sep}${frag.matter.data.image}`);
     }
     if (frag.matter.data.subtitle) {
         $("div.article__subtitle").append(frag.matter.data.subtitle);
@@ -36,7 +39,7 @@ module.exports = ($, frag, siteMetadata) => {
         .sort((a, b) => a.title.localeCompare(b.title))
         .forEach(item => {
             $relatedArticlesList
-                .append(`<li class="article__related-articles-list-item"><a class="article__link article__link--small" data-trio-link href="${item.url}">${item.title}<br>${item.excerpt}</a>`);
+                .append(`<li class="article__related-articles-list-item"><a class="article__link article__link--small" data-trio-link href="${item.url}">${item.title}<br>${item.excerpt}<${sep}a>`);
         });
     // categories lists
     const $articleTagList = $("div.article__tags").find("ul.article__tags-list");

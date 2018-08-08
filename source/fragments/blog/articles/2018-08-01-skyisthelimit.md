@@ -2,9 +2,9 @@
 description: blog article
 template: article.html
 appendToTarget: true
-title: The Power of Three
-subtitle: HTML, JavaScript and CSS
-image: html_css_js.png
+title: The Sky's The Limit
+subtitle: Build Your Dream Website
+image: architecture-building-construction-220885.jpg
 activeHeaderItem: 3
 callback:
   - article.js
