@@ -2,39 +2,40 @@
 blogFolderName: trioblog
 callback: setBlogFolderName.js
 -->
-<header class="header-container container">
-    <div class="header__promo">
-        <div class="header__promo-text">Trio</div>
-    </div>
-    <label class="hamburger-helper" for="hamburger-checkbox">
-        <div class="header-hamburger hamburger hamburger--right">
-            <div class="hamburger__bun">
-                <div class="hamburger__patty"></div>
-                <div class="hamburger__patty"></div>
-                <div class="hamburger__patty"></div>
-            </div>
-            <!-- <i class="fa fa-bars" aria-hidden="true"></i> -->
+<header class="header-container header-container--fixed">
+    <div class="container">
+        <div class="header__promo">
+            <div class="header__promo-text">Trio</div>
         </div>
-    </label>
-    <input class="hamburger-checkbox" type="checkbox" id="hamburger-checkbox">
-    <nav class="header__nav">
-        <ul class="header__nav-items">
-            <li class="header__nav-item">
-                <a data-trio-link class="header__nav-item-link" href="/">
-                    <i class="fas fa-home header__nav-item-icon"></i>Home</a>
-            </li>
-            <li class="header__nav-item">
-                <a data-trio-link class="header__nav-item-link" href="/docs">
-                    <i class="fas fa-file header__nav-item-icon"></i>Docs</a>
-            </li>
-            <li class="header__nav-item">
-                <a id="trio-blog-link" data-trio-link class="header__nav-item-link" href="/blog">
-                    <i class="fas fa-columns header__nav-item-icon"></i>Blog</a>
-            </li>
-            <li class="header__nav-item">
-                <a data-trio-link class="header__nav-item-link" href="/about">
-                    <i class="fas fa-info header__nav-item-icon"></i>About</a>
-            </li>
-        </ul>
-    </nav>
+        <label class="hamburger-helper" for="hamburger-checkbox">
+            <div class="header-hamburger hamburger hamburger--right">
+                <div class="hamburger__bun">
+                    <div class="hamburger__patty"></div>
+                    <div class="hamburger__patty"></div>
+                    <div class="hamburger__patty"></div>
+                </div>
+            </div>
+        </label>
+        <input class="hamburger-checkbox" type="checkbox" id="hamburger-checkbox">
+        <nav class="header__nav">
+            <ul class="header__nav-items">
+                <li class="header__nav-item">
+                    <a data-trio-link class="header__nav-item-link" href="/">
+                        <i class="fas fa-home header__nav-item-icon"></i>Home</a>
+                </li>
+                <li class="header__nav-item">
+                    <a data-trio-link class="header__nav-item-link" href="/docs">
+                        <i class="fas fa-file header__nav-item-icon"></i>Docs</a>
+                </li>
+                <li class="header__nav-item">
+                    <a id="trio-blog-link" data-trio-link class="header__nav-item-link" href="/blog">
+                        <i class="fas fa-columns header__nav-item-icon"></i>Blog</a>
+                </li>
+                <li class="header__nav-item">
+                    <a data-trio-link class="header__nav-item-link" href="/about">
+                        <i class="fas fa-info header__nav-item-icon"></i>About</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </header>

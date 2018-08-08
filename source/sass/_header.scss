@@ -8,6 +8,17 @@ $color: #000;
     padding-top: 20px;
     padding-bottom: 10px;
     margin-bottom: 60px;
+    background-color: #fff;
+    width: 100%;
+}
+
+.header-container--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(#000, .04);
+    box-shadow: 0 1px rgba(#000, .02);
 }
 
 .header__promo {
