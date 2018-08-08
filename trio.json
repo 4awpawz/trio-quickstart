@@ -1,6 +1,5 @@
 {
     "blogFolderName": "trioblog",
-    "beautifyHTML": true,
     "baseUrl": "/trioiopages",
     "manifest": true,
     "paginate": 5,
