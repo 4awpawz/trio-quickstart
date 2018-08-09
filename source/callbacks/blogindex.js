@@ -20,11 +20,11 @@ module.exports = ($, frag, siteMetaData) => {
     } else {
         $nextAnchorTag.addClass("next-page--hidden")
     }
-    // categories list
+    // tags list
     const $target = $("ul.blog__tags-list");
-    siteMetaData.sortedCategoryCatalog
+    siteMetaData.sortedTagCatalog
         .forEach(item => {
-            const fixedCategory = item.category.replace(" ", "");
-            $target.append(`<li class="blog__tags-list-item"><a data-trio-link href="/${siteMetaData.userConfig.blogFolderName}/${fixedCategory}">${item.category}</a></li>`);
+            const fixedTag = item.tag.replace(" ", "");
+            $target.append(`<li class="blog__tags-list-item"><a data-trio-link href="/${siteMetaData.userConfig.blogFolderName}/${fixedTag}">${item.tag}</a></li>`);
         });
 };

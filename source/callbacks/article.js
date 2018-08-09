@@ -3,8 +3,8 @@ const { sep } = require("path");
 const fillTagsList = ($target, data, blogFolderName) => {
     data.sort()
         .forEach(item => {
-            const fixedCategory = item.replace(" ", "");
-            $target.append(`<li class="article__tags-list-item"><a class="article__link article__link--small "data-trio-link href="${sep}${blogFolderName}${sep}${fixedCategory}">${item}<${sep}a><${sep}li>`);
+            const fixedTag = item.replace(" ", "");
+            $target.append(`<li class="article__tags-list-item"><a class="article__link article__link--small "data-trio-link href="${sep}${blogFolderName}${sep}${fixedTag}">${item}<${sep}a><${sep}li>`);
         });
 };
 
@@ -23,7 +23,7 @@ module.exports = ($, frag, siteMetadata) => {
     }
     // related articles list
     const relatedArticlesSet = new Set();
-    frag.relatedArticlesByCategory.forEach(item =>
+    frag.relatedArticlesByTag.forEach(item =>
         item.related.forEach(related =>
             relatedArticlesSet.add(`${related.url}\n${related.title}\n${related.excerpt}`)));
     const $relatedArticlesList = $("ul.article__related-articles-list");
@@ -41,9 +41,9 @@ module.exports = ($, frag, siteMetadata) => {
             $relatedArticlesList
                 .append(`<li class="article__related-articles-list-item"><a class="article__link article__link--small" data-trio-link href="${item.url}">${item.title}<br>${item.excerpt}<${sep}a>`);
         });
-    // categories lists
+    // tags lists
     const $articleTagList = $("div.article__tags").find("ul.article__tags-list");
-    fillTagsList($articleTagList, frag.category, siteMetadata.userConfig.blogFolderName);
+    fillTagsList($articleTagList, frag.tag, siteMetadata.userConfig.blogFolderName);
     const $allTagsList = $("div.article__all-tags").find("ul.article__tags-list");
-    fillTagsList($allTagsList, siteMetadata.sortedCategoryCatalog.map(item => item.category), siteMetadata.userConfig.blogFolderName);
+    fillTagsList($allTagsList, siteMetadata.sortedTagCatalog.map(item => item.tag), siteMetadata.userConfig.blogFolderName);
 };

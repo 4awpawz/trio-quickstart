@@ -1,9 +1,9 @@
-.category {
+.tag {
     text-align: center;
 }
 
 @media (min-width: $breakpoint) {
-    .category {
+    .tag {
         grid-column: 1 / 3;
     }
 }

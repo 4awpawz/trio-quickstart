@@ -9,7 +9,7 @@ activeHeaderItem: 3
 callback:
   - article.js
   - showCurrentPageInHeader.js
-category:
+tag:
   - Trio
   - Web Development
   - JavaScript
