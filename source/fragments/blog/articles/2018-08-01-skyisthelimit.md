@@ -4,17 +4,17 @@ template: article.html
 appendToTarget: true
 title: The Sky's The Limit
 subtitle: Build Your Dream Website
-image: architecture-building-construction-220885.jpg
+image: architecture-building-construction.jpg
 activeHeaderItem: 3
 callback:
   - article.js
   - showCurrentPageInHeader.js
-tag:
-  - Trio
+category:
   - Web Development
-  - JavaScript
-  - HTML
-  - CSS
+tag:
+  - javascript
+  - html
+  - css
 -->
 Esse ea sint magna occaecat occaecat veniam. Dolore ex pariatur ullamco minim dolor laboris ipsum. Laboris cillum esse incididunt est est irure officia ipsum duis sit. Est voluptate eiusmod sit adipisicing aute.
 <!-- end -->

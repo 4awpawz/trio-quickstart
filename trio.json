@@ -1,7 +1,6 @@
 {
     "blogFolderName": "trioblog",
     "baseUrl": "/trioiopages",
-    "manifest": true,
     "paginate": 5,
     "personalization": {
         "name": "Jeffrey Schwartz",

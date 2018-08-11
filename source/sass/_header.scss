@@ -2,14 +2,17 @@ $color: #000;
 
 .header-hamburger {
     animation: animate-opacity $opacity-animation-duration;
+    position: absolute;
+    top: -15px;
+    left: 10px;
 }
 
 .header-container {
     padding-top: 20px;
-    padding-bottom: 10px;
-    margin-bottom: 60px;
     background-color: #fff;
     width: 100%;
+    position: relative;
+    overflow: hidden;
 }
 
 .header-container--fixed {
@@ -23,7 +26,9 @@ $color: #000;
 
 .header__promo {
     display: inline-block;
-    margin-left: 10px;
+    // margin-left: 10px;
+    width: 100%;
+    text-align: center;
 }
 
 .header__promo-text {
@@ -105,6 +110,9 @@ $color: #000;
 @media (min-width: $breakpoint) {
     .header__promo {
         display: inline-block;
+        margin-left: 10px;
+        width: initial;
+        text-align: initial;
     }
     .header__nav {
         display: block;

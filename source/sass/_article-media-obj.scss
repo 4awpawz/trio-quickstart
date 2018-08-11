@@ -1,0 +1,29 @@
+.article-media-object {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.article-media-object__image {
+    flex: 1;
+    max-width: 100%;
+    height: auto;
+    border-radius: 3px;
+}
+
+.article-media-object__details {
+    flex: 2;
+}
+
+@media (min-width: $breakpoint) {
+    .article-media-object {
+        flex-direction: row;
+    }
+    .article-media-object__image {
+        flex: 1;
+        width: 20%;
+        height: 20%;
+        margin-right: 10px;
+        border-radius: 3px;
+    }
+}

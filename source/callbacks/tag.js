@@ -1,10 +1,12 @@
+const { sep } = require("path");
+
 module.exports = ($, frag, siteMetaData) => {
     // tag under title
     $("div.tag").append(frag.forTag);
     // articles list
-    const cat = siteMetaData.sortedTagCatalog.filter(item =>
+    const cat = siteMetaData.sortedTagCatalog.find(item =>
         item.tag === frag.forTag);
-    cat[0].related.forEach(item => {
+    cat.related.forEach(item => {
         $("ul.blog__articles")
             .append(`<li><a data-trio-link href="${item.url}">${item.title}</a></li>`)
     });
@@ -12,7 +14,6 @@ module.exports = ($, frag, siteMetaData) => {
     const $target = $("ul.blog__tags-list");
     siteMetaData.sortedTagCatalog
         .forEach(item => {
-            const fixedTag = item.tag.replace(" ", "");
-            $target.append(`<li class="blog__tags-list-item"><a data-trio-link href="/${siteMetaData.userConfig.blogFolderName}/${fixedTag}">${item.tag}</a></li>`);
+            $target.append(`<li class="blog__tags-list-item"><a data-trio-link href="/${siteMetaData.userConfig.blogFolderName}${sep}tag${sep}${item.tag}">${item.tag}</a></li>`);
         });
 };

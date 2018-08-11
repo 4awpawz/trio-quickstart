@@ -14,30 +14,35 @@
 
 <body>
     <header data-trio-include="header.html"></header>
-    <main class="container article">
-        <div class="article__banner">
-            <h1 class="article__title"></h1>
-            <div class="article__date"></div>
-            <img data-trio-link class="article__image" src="" alt="">
+    <main>
+        <div class="banner">
+            <img data-trio-link class="banner__image" src="" alt="article image">
         </div>
-        <div class="article__subtitle"></div>
-        <article class="article__story" data-trio-fragment-body>
-        </article>
-        <div class="article__metadata">
-            <div class="article__related-articles">
-                <h2 class="article__related-articles-title">Related Articles</h2>
-                <ul class="article__related-articles-list"></ul>
+        <section class="container article">
+            <div class="article__info">
+                <h1 class="article__title"></h1>
+                <div class="article__subtitle"></div>
+                <div class="article__date"></div>
             </div>
-            <div class="article__tags">
-                <h2 class="article__tags-title">Article Tags</h2>
-                <ul class="article__tags-list"></ul>
+            <article class="article__story" data-trio-fragment>
+            </article>
+            <div class="article__metadata">
+                <div class="article__related-articles">
+                    <h2 class="article__related-articles-title">Related Articles by Tags</h2>
+                    <ul class="article__related-articles-list"></ul>
+                </div>
+                <div class="article__tags">
+                    <h2 class="article__tags-title">Article Tags</h2>
+                    <ul class="article__tags-list"></ul>
+                </div>
+                <div class="article__all-tags">
+                    <h2 class="article__tags-title">All Tags</h2>
+                    <ul class="article__tags-list"></ul>
+                </div>
             </div>
-            <div class="article__all-tags">
-                <h2 class="article__tags-title">All Tags</h2>
-                <ul class="article__tags-list"></ul>
-            </div>
-        </div>
+        </section>
     </main>
+    <footer data-trio-include="footer.html"></footer>
 </body>
 
 </html>

@@ -1,0 +1,15 @@
+.banner {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #7b8181;
+    position: relative;
+}
+
+.banner__image {
+    align-self: center;
+    border-radius: 3px;
+    width: 100%;
+    max-width: 1024px;
+    height: auto;
+}

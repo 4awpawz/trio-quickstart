@@ -14,12 +14,7 @@ $height: 19px;
 .hamburger {
     width: $width;
     height: 40px;
-}
-
-.hamburger--right {
-    float: right;
     overflow: hidden;
-    margin-right: 10px;
 }
 
 .hamburger__bun {

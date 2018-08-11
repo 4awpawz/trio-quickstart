@@ -6,34 +6,27 @@
     color: $default-text-color;
 }
 
+.article__info {
+    margin-top: 10px;
+}
+
 .article__title {
     font-size: 2rem;
     text-align: center;
-    margin-top: 1rem;
+    margin: 0;
 }
 
 .article__subtitle {
     text-align: center;
     font-style: italic;
-    margin-bottom: 20px;
 }
 
 .article__subtitle::before {
     content: open-quote;
-    font-size: 2rem;
-    position: relative;
-    top: 10px;
-    left: 0;
-    margin: 3px;
 }
 
 .article__subtitle::after {
     content: close-quote;
-    font-size: 2rem;
-    position: relative;
-    top: 10px;
-    left: -5px;
-    margin: 3px;
 }
 
 .article__date {
@@ -44,26 +37,10 @@
 .article__title::after {
     content: "";
     display: block;
-    width: 2rem;
-    height: 2px;
-    background-color: $alt-text-color;
-    margin: 0 auto;
-}
-
-.article__banner {
-    width: 100%;
-    background-color: $color;
-    border-radius: 3px;
-    color: $alt-text-color;
-    padding-bottom: 1rem;
-}
-
-.article__image {
-    display: block;
-    width: 250px;
-    margin: 20px auto;
-    background-color: #fff;
-    border-radius: 3px;
+    width: 4rem;
+    height: 1px;
+    background-color: rgba($default-text-color, 0.4);
+    margin: 0 auto .5rem auto;
 }
 
 .article__story {
@@ -116,22 +93,12 @@
     .article {
         grid-template-columns: 1fr 3fr;
     }
-    .article__banner {
+    .article__info {
         grid-row: 1 / 2;
         grid-column: 1 / 3;
     }
     .article__title {
         font-size: 3.5rem;
-        margin-top: 2rem;
-    }
-    .article__image {
-        width: 300px;
-        margin: 50px auto;
-    }
-    .article__subtitle {
-        grid-row: 2 / 3;
-        grid-column: 1 / 3;
-        margin-bottom: 30px;
     }
     .article__metadata {
         grid-row: 3 / 4;
@@ -140,10 +107,11 @@
         border-top: none;
         border-right: 1px solid $hover-bg-color;
         text-align: center;
+        padding-right: 2rem;
     }
     .article__story {
         grid-row: 3 / 4;
         grid-column: 2 / 3;
-        padding-left: 4rem;
+        padding-left: 2rem;
     }
 }

@@ -4,14 +4,15 @@ template: article.html
 appendToTarget: true
 title: Unlock Your Imagination
 subtitle: and liberate your mind
-image: chain-key-lock-39624.jpg
+image: chain-key-lock.jpg
 activeHeaderItem: 3
 callback:
   - article.js
   - showCurrentPageInHeader.js
-tag:
+category:
   - Web Development
-  - HTML
+tag:
+  - html
 -->
 Esse ea sint magna occaecat occaecat veniam. Dolore ex pariatur ullamco minim dolor laboris ipsum. Laboris cillum esse incididunt est est irure officia ipsum duis sit. Est voluptate eiusmod sit adipisicing aute.
 <!-- end -->

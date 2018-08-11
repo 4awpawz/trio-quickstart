@@ -1,9 +1,13 @@
-.tag {
+.tag-container {
     text-align: center;
 }
 
+.tag {
+    font-size: .8rem;
+}
+
 @media (min-width: $breakpoint) {
-    .tag {
+    .tag-container {
         grid-column: 1 / 3;
     }
 }

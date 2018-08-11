@@ -4,17 +4,18 @@ template: article.html
 appendToTarget: true
 title: The Power of Three
 subtitle: HTML, JavaScript and CSS
-image: html_css_js.png
+image: html-css-javascript.png
 activeHeaderItem: 3
 callback:
   - article.js
   - showCurrentPageInHeader.js
-tag:
-  - Trio
+category:
   - Web Development
-  - JavaScript
-  - HTML
-  - CSS
+  - Trio
+tag:
+  - javascript
+  - html
+  - css
 -->
 Esse ea sint magna occaecat occaecat veniam. Dolore ex pariatur ullamco minim dolor laboris ipsum. Laboris cillum esse incididunt est est irure officia ipsum duis sit. Est voluptate eiusmod sit adipisicing aute.
 <!-- end -->

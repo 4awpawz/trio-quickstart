@@ -14,9 +14,12 @@
 
 <body>
     <header data-trio-include="header.html"></header>
+    <div class="banner">
+        <img data-trio-link="" class="banner__image" src="/media/blog.jpg" alt="blog image">
+    </div>
     <main class="container blog">
-        <h1 class="blog__title">Blog</h1>
-        <ul data-trio-fragment-body class="blog__articles"></ul>
+        <h1 class="blog__page-title page-title">Blog</h1>
+        <ul data-trio-fragment class="blog__articles"></ul>
         <a data-trio-link="" class="prev-page" href="#">Newer Articles</a>
         <a data-trio-link="" class="next-page" href="#">Older Articles</a>
         <div class="blog__metadata">
@@ -26,6 +29,7 @@
             </div>
         </div>
     </main>
+    <footer data-trio-include="footer.html"></footer>
 </body>
 
 </html>
