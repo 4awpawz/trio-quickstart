@@ -32,4 +32,18 @@ module.exports = ($, frag, siteMetadata) => {
     fillTagsList($articleTagList, frag.tag, siteMetadata.userConfig.blogFolderName);
     const $allTagsList = $("div.article__all-tags").find("ul.article__tags-list");
     fillTagsList($allTagsList, siteMetadata.sortedTagCatalog.map(item => item.tag), siteMetadata.userConfig.blogFolderName);
+
+    // previous & next article links
+    const $prevLink  = $("a.article__previous-link");
+    const $nextLink  = $("a.article__next-link");
+    if (frag.prevArticleUrl) {
+        $prevLink.attr("href", frag.prevArticleUrl);
+    } else {
+        $prevLink.css("visibility", "hidden");
+    }
+    if (frag.nextArticleUrl) {
+        $nextLink.attr("href", frag.nextArticleUrl);
+    } else {
+        $nextLink.css("visibility", "hidden");
+    }
 };
