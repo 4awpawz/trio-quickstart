@@ -1,5 +1,3 @@
-const { sep } = require("path");
-
 module.exports = ($, frag, siteMetaData) => {
     // tag under title
     $("div.tag").append(frag.forTag);
@@ -14,6 +12,6 @@ module.exports = ($, frag, siteMetaData) => {
     const $target = $("ul.blog__tags-list");
     siteMetaData.sortedTagCatalog
         .forEach(item => {
-            $target.append(`<li class="blog__tags-list-item"><a data-trio-link href="/${siteMetaData.userConfig.blogFolderName}${sep}tag${sep}${item.tag}">${item.tag}</a></li>`);
+            $target.append(`<li class="blog__tags-list-item"><a data-trio-link href="/${siteMetaData.userConfig.blogFolderName}/tag/${item.tag}">${item.tag}</a></li>`);
         });
 };

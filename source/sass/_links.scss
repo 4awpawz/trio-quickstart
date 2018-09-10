@@ -1,8 +1,23 @@
-.prev-page, .next-page {
-    display: inlin-block;
-    color: $default-text-color;
+.page-links {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
 
-.prev-page--hidden, .next-page--hidden {
+.page-links__previous-link {
+    flex: 1;
+    text-align: left;
+}
+
+.page-links__next-link {
+    flex: 1;
+    text-align: right;
+}
+
+
+.page-links__previous-link--hidden,
+.page-links__next-link--hidden
+ {
     display: none;
 }

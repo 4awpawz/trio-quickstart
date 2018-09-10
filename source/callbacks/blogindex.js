@@ -1,5 +1,3 @@
-const { sep } = require("path");
-
 const createArticleMediaObject = (article, cheerio) => {
     const $mediaObj = cheerio.load(`<li id="article-${article.id}"><a data-trio-link href="${article.url}"><article class="article-media-object"></article></a></li>`);
     const $item = $mediaObj("article");
@@ -8,7 +6,7 @@ const createArticleMediaObject = (article, cheerio) => {
     const $details = $mediaObj("div.article-media-object__details");
     $details.append(`<div>${article.title}</div>`);
     $details.append(`<div>${article.articleDate}</div>`);
-    $details.append(`<div>category: ${article.category.join(", ")}</div>`);
+    $details.append(`<div>category: ${article.category.join("/")}</div>`);
     $details.append(`<div>tags: ${article.tag.join(", ")}</div>`);
     $details.append(`<p>${article.excerpt}</p>`);
     return $mediaObj;
@@ -31,20 +29,20 @@ module.exports = ($, frag, siteMetadata, cheerio) => {
     }
 
     // blog page links
-    const $prevAnchorTag = $("a.prev-page");
-    const $nextAnchorTag = $("a.next-page");
+    const $prevAnchorTag = $("a.page-links__previous-link");
+    const $nextAnchorTag = $("a.page-links__next-link");
     if (page > 1) {
         const prevPage = page - 1 === 1
-            ? `${sep}${siteMetadata.userConfig.blogFolderName}`
-            : `${sep}${siteMetadata.userConfig.blogFolderName}${sep}${page - 1}`;
+            ? `/${siteMetadata.userConfig.blogFolderName}`
+            : `/${siteMetadata.userConfig.blogFolderName}/${page - 1}`;
         $prevAnchorTag.attr("href", prevPage);
     } else {
-        $prevAnchorTag.addClass("prev-page--hidden")
+        $prevAnchorTag.addClass("page-links__previous-link--hidden")
     }
     if (page < totPages) {
-        $nextAnchorTag.attr("href", `/${siteMetadata.userConfig.blogFolderName}${sep}${page + 1}`);
+        $nextAnchorTag.attr("href", `/${siteMetadata.userConfig.blogFolderName}/${page + 1}`);
     } else {
-        $nextAnchorTag.addClass("next-page--hidden")
+        $nextAnchorTag.addClass("page-links__next-link--hidden")
     }
 
     // tags list
@@ -52,6 +50,6 @@ module.exports = ($, frag, siteMetadata, cheerio) => {
     siteMetadata.sortedTagCatalog
         .forEach(item => {
             const fixedTag = item.tag.replace(" ", "");
-            $target.append(`<li class="blog__tags-list-item"><a data-trio-link href="/${siteMetadata.userConfig.blogFolderName}${sep}tag${sep}${fixedTag}">${item.tag}</a></li>`);
+            $target.append(`<li class="blog__tags-list-item"><a data-trio-link href="/${siteMetadata.userConfig.blogFolderName}/tag/${fixedTag}">${item.tag}</a></li>`);
         });
 };

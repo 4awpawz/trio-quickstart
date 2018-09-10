@@ -1,7 +1,5 @@
-const { sep } = require("path");
-
 module.exports = ($, frag, siteMetaData) => {
-    const fmtCategory = frag.forCategory.join(sep);
+    const fmtCategory = frag.forCategory.join("/");
     // category under title
     $("div.category").append(fmtCategory);
     // articles list
@@ -16,7 +14,6 @@ module.exports = ($, frag, siteMetaData) => {
     const $target = $("ul.blog__categories-list");
     siteMetaData.categoriesCatalog
         .forEach(item => {
-            const fixedCategory = item.category.replace("/", sep);
-            $target.append(`<li class="blog__categories-list-item"><a data-trio-link href="/${siteMetaData.userConfig.blogFolderName}${sep}category${sep}${fixedCategory}">${item.category}</a></li>`);
+            $target.append(`<li class="blog__categories-list-item"><a data-trio-link href="/${siteMetaData.userConfig.blogFolderName}/category/${item.category}">${item.category}</a></li>`);
         });
 };

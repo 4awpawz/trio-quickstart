@@ -1,3 +1,5 @@
+$color: rgba(#000, 0.7);
+
 .article {
     display: grid;
     grid-template-rows: auto;
@@ -16,16 +18,23 @@
     margin: 0;
 }
 
-.article__subtitle {
+.article__subtitle,
+.article__related-article-subtitle {
     text-align: center;
     font-style: italic;
 }
 
-.article__subtitle::before {
+.article__related-article-excerpt {
+    font-size: .9rem;
+}
+
+.article__subtitle::before,
+.article__related-article-subtitle::before {
     content: open-quote;
 }
 
-.article__subtitle::after {
+.article__subtitle::after,
+.article__related-article-subtitle::after {
     content: close-quote;
 }
 
@@ -34,13 +43,18 @@
     text-align: center;
 }
 
-.article__title::after {
+.article__title::after,
+.article__related-article-title::after {
     content: "";
     display: block;
     width: 4rem;
     height: 1px;
     background-color: rgba($default-text-color, 0.4);
     margin: 0 auto .5rem auto;
+}
+
+.article__related-article-title::after {
+    margin: 0 auto;
 }
 
 .article__story {
@@ -54,18 +68,27 @@
 
 .article__related-articles-title,
 .article__tags-title {
-    font-size: .8rem;
+    font-size: 1rem;
     font-weight: normal;
     text-align: center;
     text-decoration: underline;
+    margin-bottom: 20px;
 }
 
 .article__related-articles-list,
 .article__tags-list {
     list-style: none;
+    font-size: .9rem;
     margin: 0;
     padding: 0;
-    font-size: .9rem;
+}
+
+.article__related-articles-list-item {
+    margin-bottom: 20px;
+}
+
+.article__related-article-title {
+    font-weight: bold;
 }
 
 .article__tags-list-item:hover,
@@ -80,32 +103,12 @@
     text-decoration: none;
 }
 
-.article__link--small {
-    font-size: .9rem;
-}
-
 .article__metadata {
     padding-top: 20px;
     padding-bottom: 20px;
     border-top: 1px solid $hover-bg-color;
     border-bottom: 1px solid $hover-bg-color;
-}
-
-.article__links {
-    padding-top: 20px;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
-
-.article__previous-link {
-    flex: 1;
-    text-align: left;
-}
-
-.article__next-link {
-    flex: 1;
-    text-align: right;
+    text-align: center;
 }
 
 @media (min-width: $breakpoint) {
@@ -120,23 +123,22 @@
         font-size: 3.5rem;
     }
     .article__metadata {
-        grid-row: 3 / 4;
+        grid-row: 2 / 3;
         grid-column: 1 / 2;
-        padding-right: 10px;
+        padding-top: 0;
+        padding-right: 2rem;
         border-top: none;
         border-right: 1px solid $hover-bg-color;
         border-bottom: 1px solid $hover-bg-color;
-        text-align: center;
-        padding-right: 2rem;
     }
     .article__story {
-        grid-row: 3 / 4;
+        grid-row: 2 / 3;
         grid-column: 2 / 3;
         padding-left: 2rem;
         border-bottom: 1px solid $hover-bg-color;
     }
-    .article__links {
-        grid-row: 4 / 5;
+    .article-page-links {
+        grid-row: 3 / 4;
         grid-column: 1 / 3;
     }
 }

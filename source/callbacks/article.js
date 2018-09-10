@@ -1,10 +1,8 @@
-const { sep } = require("path");
-
 const fillTagsList = ($target, data, blogFolderName) => {
     data.sort()
         .forEach(item => {
             const fixedTag = item.replace(" ", "");
-            $target.append(`<li class="article__tags-list-item"><a class="article__link article__link--small "data-trio-link href="${sep}${blogFolderName}${sep}tag${sep}${fixedTag}">${item}<${sep}a><${sep}li>`);
+            $target.append(`<li class="article__tags-list-item"><a class="article__link article__link "data-trio-link href="/${blogFolderName}/tag/${fixedTag}">${item}</a></li>`);
         });
 };
 
@@ -12,7 +10,7 @@ module.exports = ($, frag, siteMetadata) => {
     $("h1.article__title").append(frag.title);
     $("div.article__date").append(frag.articleDate);
     if (frag.matter.data.image) {
-        $("img.banner__image").attr("src", `${sep}media${sep}${frag.matter.data.image}`);
+        $("img.banner__image").attr("src", `/media/${frag.matter.data.image}`);
     }
     if (frag.matter.data.subtitle) {
         $("div.article__subtitle").append(frag.matter.data.subtitle);
@@ -22,10 +20,11 @@ module.exports = ($, frag, siteMetadata) => {
 
     // related articles list
     const $relatedArticlesList = $("ul.article__related-articles-list");
-    frag.relatedArticlesByTagFlattened.forEach(item =>
+    frag.relatedArticlesByTagFlattened.forEach(item => {
+        const ra = siteMetadata.articlesCatalog.find(rel => item.id === rel.id);
         $relatedArticlesList
-            .append(`<li class="article__related-articles-list-item"><a class="article__link article__link--small" data-trio-link href="${item.url}">${item.title}<br>${item.excerpt}</a></li>`)
-    );
+            .append(`<li class="article__related-articles-list-item"><a class="article__link article__link" data-trio-link href="${item.url}"><div class="article__related-article-title">${item.title}</div><div class="article__related-article-subtitle">${ra.matter.data.subtitle}</div><div class="article__related-article-date">${item.date}</div><p class="article__related-article-excerpt">${item.excerpt}</p></a></li>`)
+    });
 
     // tags lists
     const $articleTagList = $("div.article__tags").find("ul.article__tags-list");
@@ -34,16 +33,16 @@ module.exports = ($, frag, siteMetadata) => {
     fillTagsList($allTagsList, siteMetadata.sortedTagCatalog.map(item => item.tag), siteMetadata.userConfig.blogFolderName);
 
     // previous & next article links
-    const $prevLink  = $("a.article__previous-link");
-    const $nextLink  = $("a.article__next-link");
+    const $prevLink  = $("a.page-links__previous-link");
+    const $nextLink  = $("a.page-links__next-link");
     if (frag.prevArticleUrl) {
         $prevLink.attr("href", frag.prevArticleUrl);
     } else {
-        $prevLink.css("visibility", "hidden");
+        $prevLink.addClass("page-links__previous-link--hidden")
     }
     if (frag.nextArticleUrl) {
         $nextLink.attr("href", frag.nextArticleUrl);
     } else {
-        $nextLink.css("visibility", "hidden");
+        $nextLink.addClass("page-links__next-link--hidden");
     }
 };
