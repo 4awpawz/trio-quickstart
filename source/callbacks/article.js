@@ -33,16 +33,16 @@ module.exports = ($, frag, siteMetadata) => {
     fillTagsList($allTagsList, siteMetadata.sortedTagCatalog.map(item => item.tag), siteMetadata.userConfig.blogFolderName);
 
     // previous & next article links
-    const $prevLink  = $("a.page-links__previous-link");
     const $nextLink  = $("a.page-links__next-link");
-    if (frag.prevArticleUrl) {
-        $prevLink.attr("href", frag.prevArticleUrl);
-    } else {
-        $prevLink.addClass("page-links__previous-link--hidden")
-    }
+    const $prevLink  = $("a.page-links__previous-link");
     if (frag.nextArticleUrl) {
         $nextLink.attr("href", frag.nextArticleUrl);
     } else {
         $nextLink.addClass("page-links__next-link--hidden");
+    }
+    if (frag.previousArticleUrl) {
+        $prevLink.attr("href", frag.previousArticleUrl);
+    } else {
+        $prevLink.addClass("page-links__previous-link--hidden")
     }
 };
