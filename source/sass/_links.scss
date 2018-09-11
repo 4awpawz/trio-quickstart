@@ -5,18 +5,18 @@
     width: 100%;
 }
 
-.page-links__next-link {
+.page-links__newer-link {
     flex: 1;
     text-align: left;
 }
 
-.page-links__previous-link {
+.page-links__older-link {
     flex: 1;
     text-align: right;
 }
 
-.page-links__previous-link--hidden,
-.page-links__next-link--hidden
+.page-links__newer-link--hidden,
+.page-links__older-link--hidden
  {
     display: none;
 }

@@ -29,20 +29,20 @@ module.exports = ($, frag, siteMetadata, cheerio) => {
     }
 
     // blog page links
-    const $prevAnchorTag = $("a.page-links__previous-link");
-    const $nextAnchorTag = $("a.page-links__next-link");
+    const $newerAnchorTag = $("a.page-links__newer-link");
+    const $olderAnchorTag = $("a.page-links__older-link");
     if (page > 1) {
-        const prevPage = page - 1 === 1
+        const newerPage = page - 1 === 1
             ? `/${siteMetadata.userConfig.blogFolderName}`
             : `/${siteMetadata.userConfig.blogFolderName}/${page - 1}`;
-        $prevAnchorTag.attr("href", prevPage);
+        $newerAnchorTag.attr("href", newerPage);
     } else {
-        $prevAnchorTag.addClass("page-links__previous-link--hidden")
+        $newerAnchorTag.addClass("page-links__newer-link--hidden")
     }
     if (page < totPages) {
-        $nextAnchorTag.attr("href", `/${siteMetadata.userConfig.blogFolderName}/${page + 1}`);
+        $olderAnchorTag.attr("href", `/${siteMetadata.userConfig.blogFolderName}/${page + 1}`);
     } else {
-        $nextAnchorTag.addClass("page-links__next-link--hidden")
+        $olderAnchorTag.addClass("page-links__older-link--hidden")
     }
 
     // tags list
