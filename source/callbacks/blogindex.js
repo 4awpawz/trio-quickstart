@@ -1,7 +1,7 @@
 const createArticleMediaObject = (article, cheerio) => {
     const $mediaObj = cheerio.load(`<li id="article-${article.id}"><a data-trio-link href="${article.url}"><article class="article-media-object"></article></a></li>`);
     const $item = $mediaObj("article");
-    $item.append(`<img data-trio-link class="article-media-object__image" src="/media/${article.matter.data.image}" alt="article image">`);
+    $item.append(`<img data-trio-link class="article-media-object__image" src="/media/${article.image}" alt="article image">`);
     $item.append(`<div class="article-media-object__details"></div>`);
     const $details = $mediaObj("div.article-media-object__details");
     $details.append(`<div>${article.title}</div>`);
@@ -13,7 +13,7 @@ const createArticleMediaObject = (article, cheerio) => {
 };
 
 module.exports = ($, frag, siteMetadata, cheerio) => {
-    const page = parseInt(frag.matter.data.page, 10);
+    const page = parseInt(frag.page, 10);
     const paginate = parseInt(siteMetadata.userConfig.paginate, 10);
     const totPages = (parseInt(siteMetadata.articlesCount / paginate, 10))
         + (siteMetadata.articlesCount % paginate ? 1 : 0);
