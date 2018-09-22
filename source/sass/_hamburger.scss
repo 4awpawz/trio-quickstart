@@ -11,18 +11,12 @@ $height: 19px;
     display: block;
 }
 
-.hamburger {
-    width: $width;
-    height: 40px;
-    overflow: hidden;
-}
-
-.hamburger__bun {
+.hamburger-bun {
     height: 11px;
     margin: 14.5px 0;
 }
 
-.hamburger__patty {
+.hamburger-patty {
     width: 16px;
     height: 1px;
     margin: 4px auto;
