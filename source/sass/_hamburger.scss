@@ -3,25 +3,29 @@ $bgcolor: #fff;
 $width: 32px;
 $height: 19px;
 
+.hamburer {
+    display: initial;
+}
+
+.hamburger__bun {
+    height: 11px;
+    margin: 14.5px 0;
+}
+
+.hamburger__patty {
+    width: 16px;
+    height: 1px;
+    margin: 4px auto;
+    background-color: #000;
+    outline: 1px solid #000;
+}
+
 .hamburger-checkbox {
     display: none;
 }
 
 .hamburger-checkbox:checked + * {
     display: block;
-}
-
-.hamburger-bun {
-    height: 11px;
-    margin: 14.5px 0;
-}
-
-.hamburger-patty {
-    width: 16px;
-    height: 1px;
-    margin: 4px auto;
-    background-color: #000;
-    outline: 1px solid #000;
 }
 
 @media (min-width: $breakpoint) {
