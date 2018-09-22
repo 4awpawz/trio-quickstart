@@ -6,7 +6,7 @@ module.exports = ($, frag, siteMetaData) => {
         item.tag === frag.forTag);
     cat.related.forEach(item => {
         $("ul.blog__articles")
-            .append(`<li><a data-trio-link href="${item.url}">${item.title}</a></li>`)
+            .append(`<li><a data-trio-link href="${item.url}">${item.title}</a></li>`);
     });
     // tags list
     const $target = $("ul.blog__tags-list");
