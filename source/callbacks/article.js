@@ -27,9 +27,9 @@ module.exports = ($, frag, siteMetadata) => {
     });
 
     // tags lists
-    const $articleTagList = $("div.article__tags").find("ul.article__tags-list");
+    const $articleTagList = $("section.article__tags").find("ul.article__tags-list");
     fillTagsList($articleTagList, frag.tag, siteMetadata.userConfig.blogFolderName);
-    const $allTagsList = $("div.article__all-tags").find("ul.article__tags-list");
+    const $allTagsList = $("section.article__all-tags").find("ul.article__tags-list");
     fillTagsList($allTagsList, siteMetadata.sortedTagCatalog.map(item => item.tag), siteMetadata.userConfig.blogFolderName);
 
     // previous & next article links
