@@ -1,4 +1,4 @@
-module.exports = ($, frag) => {
+module.exports = ({ $, frag }) => {
     const activeHeaderItem = frag.activeHeaderItem;
     if (!activeHeaderItem) {
         throw new Error("Error: \"activeHeaderItem\" property not found in fragment");

@@ -12,7 +12,7 @@ const createArticleMediaObject = (article, cheerio) => {
     return $mediaObj;
 };
 
-module.exports = ($, frag, siteMetadata, cheerio) => {
+module.exports = ({ $, frag, siteMetadata, cheerio }) => {
     const page = parseInt(frag.page, 10);
     const paginate = parseInt(siteMetadata.userConfig.paginate, 10);
     const totPages = (parseInt(siteMetadata.articlesCount / paginate, 10)) +

@@ -1,8 +1,8 @@
-module.exports = ($, frag, siteMetaData) => {
+module.exports = ({ $, frag, siteMetadata }) => {
     // tag under title
     $("div.tag").append(frag.forTag);
     // articles list
-    const cat = siteMetaData.sortedTagCatalog.find(item =>
+    const cat = siteMetadata.sortedTagCatalog.find(item =>
         item.tag === frag.forTag);
     cat.related.forEach(item => {
         $("ul.blog__articles")
@@ -10,8 +10,8 @@ module.exports = ($, frag, siteMetaData) => {
     });
     // tags list
     const $target = $("ul.blog__tags-list");
-    siteMetaData.sortedTagCatalog
+    siteMetadata.sortedTagCatalog
         .forEach(item => {
-            $target.append(`<li class="blog__tags-list-item"><a data-trio-link href="/${siteMetaData.userConfig.blogFolderName}/tag/${item.tag}">${item.tag}</a></li>`);
+            $target.append(`<li class="blog__tags-list-item"><a data-trio-link href="/${siteMetadata.userConfig.blogFolderName}/tag/${item.tag}">${item.tag}</a></li>`);
         });
 };

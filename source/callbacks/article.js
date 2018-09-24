@@ -6,7 +6,7 @@ const fillTagsList = ($target, data, blogFolderName) => {
         });
 };
 
-module.exports = ($, frag, siteMetadata) => {
+module.exports = ({ $, frag, siteMetadata }) => {
     $("h1.article__title").append(frag.title);
     $("div.article__date").append(frag.articleDate);
     if (frag.image) {
