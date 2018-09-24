@@ -2,7 +2,7 @@ const createArticleMediaObject = (article, cheerio) => {
     const $mediaObj = cheerio.load(`<li id="article-${article.id}"><a data-trio-link href="${article.url}"><article class="article-media-object"></article></a></li>`);
     const $item = $mediaObj("article");
     $item.append(`<img data-trio-link class="article-media-object__image" src="/media/${article.image}" alt="article image">`);
-    $item.append(`<div class="article-media-object__details"></div>`);
+    $item.append("<div class=\"article-media-object__details\"></div>");
     const $details = $mediaObj("div.article-media-object__details");
     $details.append(`<div>${article.title}</div>`);
     $details.append(`<div>${article.articleDate}</div>`);
@@ -15,8 +15,8 @@ const createArticleMediaObject = (article, cheerio) => {
 module.exports = ($, frag, siteMetadata, cheerio) => {
     const page = parseInt(frag.page, 10);
     const paginate = parseInt(siteMetadata.userConfig.paginate, 10);
-    const totPages = (parseInt(siteMetadata.articlesCount / paginate, 10))
-        + (siteMetadata.articlesCount % paginate ? 1 : 0);
+    const totPages = (parseInt(siteMetadata.articlesCount / paginate, 10)) +
+        (siteMetadata.articlesCount % paginate ? 1 : 0);
 
     // articles list
     if (siteMetadata.articlesCount) {
@@ -37,12 +37,12 @@ module.exports = ($, frag, siteMetadata, cheerio) => {
             : `/${siteMetadata.userConfig.blogFolderName}/${page - 1}`;
         $newerAnchorTag.attr("href", newerPage);
     } else {
-        $newerAnchorTag.addClass("page-links__newer-link--hidden")
+        $newerAnchorTag.addClass("page-links__newer-link--hidden");
     }
     if (page < totPages) {
         $olderAnchorTag.attr("href", `/${siteMetadata.userConfig.blogFolderName}/${page + 1}`);
     } else {
-        $olderAnchorTag.addClass("page-links__older-link--hidden")
+        $olderAnchorTag.addClass("page-links__older-link--hidden");
     }
 
     // tags list

@@ -8,7 +8,7 @@ module.exports = ($, frag, siteMetaData) => {
     });
     cat.related.forEach(item => {
         $("ul.blog__articles")
-            .append(`<li><a data-trio-link href="${item.url}">${item.title}</a></li>`)
+            .append(`<li><a data-trio-link href="${item.url}">${item.title}</a></li>`);
     });
     // categories list
     const $target = $("ul.blog__categories-list");

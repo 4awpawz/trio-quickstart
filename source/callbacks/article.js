@@ -23,7 +23,7 @@ module.exports = ($, frag, siteMetadata) => {
     frag.relatedArticlesByTagFlattened.forEach(item => {
         const ra = siteMetadata.articlesCatalog.find(rel => item.id === rel.id);
         $relatedArticlesList
-            .append(`<li class="article__related-articles-list-item"><a class="article__link article__link" data-trio-link href="${item.url}"><div class="article__related-article-title">${item.title}</div><div class="article__related-article-subtitle">${ra.subtitle}</div><div class="article__related-article-date">${item.date}</div><p class="article__related-article-excerpt">${item.excerpt}</p></a></li>`)
+            .append(`<li class="article__related-articles-list-item"><a class="article__link article__link" data-trio-link href="${item.url}"><div class="article__related-article-title">${item.title}</div><div class="article__related-article-subtitle">${ra.subtitle}</div><div class="article__related-article-date">${item.date}</div><p class="article__related-article-excerpt">${item.excerpt}</p></a></li>`);
     });
 
     // tags lists
@@ -33,8 +33,8 @@ module.exports = ($, frag, siteMetadata) => {
     fillTagsList($allTagsList, siteMetadata.sortedTagCatalog.map(item => item.tag), siteMetadata.userConfig.blogFolderName);
 
     // previous & next article links
-    const $nextLink  = $("a.page-links__newer-link");
-    const $prevLink  = $("a.page-links__older-link");
+    const $nextLink = $("a.page-links__newer-link");
+    const $prevLink = $("a.page-links__older-link");
     if (frag.nextArticleUrl) {
         $nextLink.attr("href", frag.nextArticleUrl);
     } else {
@@ -43,6 +43,6 @@ module.exports = ($, frag, siteMetadata) => {
     if (frag.previousArticleUrl) {
         $prevLink.attr("href", frag.previousArticleUrl);
     } else {
-        $prevLink.addClass("page-links__older-link--hidden")
+        $prevLink.addClass("page-links__older-link--hidden");
     }
 };
