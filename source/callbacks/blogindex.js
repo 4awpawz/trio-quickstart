@@ -4,11 +4,10 @@ const createArticleMediaObject = (article, cheerio) => {
     $item.append(`<img data-trio-link class="article-media-object__image" src="/media/${article.image}" alt="article image">`);
     $item.append("<div class=\"article-media-object__details\"></div>");
     const $details = $mediaObj("div.article-media-object__details");
-    $details.append(`<div>${article.title}</div>`);
-    $details.append(`<div>${article.articleDate}</div>`);
-    $details.append(`<div>category: ${article.category.join("/")}</div>`);
-    $details.append(`<div>tags: ${article.tag.join(", ")}</div>`);
-    $details.append(`<p>${article.excerpt}</p>`);
+    $details.append(`<h2 class="article-media-object__details-title">${article.title}</h2>`);
+    $details.append(`<div class="article-media-object__details-subtitle">${article.subtitle}</div>`);
+    $details.append(`<div class="article-media-object__details-date">${article.articleDate}</div>`);
+    $details.append(`<p class="article-media-object__excerpt">${article.excerpt}</p>`);
     return $mediaObj;
 };
 
