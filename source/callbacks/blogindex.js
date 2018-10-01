@@ -1,18 +1,20 @@
 const createArticleMediaObject = (article, cheerio) => {
+    const { data } = article.matter;
     const $mediaObj = cheerio.load(`<li id="article-${article.id}"><a data-trio-link href="${article.url}"><article class="article-media-object"></article></a></li>`);
     const $item = $mediaObj("article");
-    $item.append(`<img data-trio-link class="article-media-object__image" src="/media/${article.image}" alt="article image">`);
+    $item.append(`<img data-trio-link class="article-media-object__image" src="/media/${data.image}" alt="article image">`);
     $item.append("<div class=\"article-media-object__details\"></div>");
     const $details = $mediaObj("div.article-media-object__details");
-    $details.append(`<h2 class="article-media-object__details-title">${article.title}</h2>`);
-    $details.append(`<div class="article-media-object__details-subtitle">${article.subtitle}</div>`);
+    $details.append(`<h2 class="article-media-object__details-title">${data.title}</h2>`);
+    $details.append(`<div class="article-media-object__details-subtitle">${data.subtitle}</div>`);
     $details.append(`<div class="article-media-object__details-date">${article.articleDate}</div>`);
-    $details.append(`<p class="article-media-object__excerpt">${article.excerpt}</p>`);
+    $details.append(`<p class="article-media-object__excerpt">${article.matter.excerpt}</p>`);
     return $mediaObj;
 };
 
 module.exports = ({ $, frag, siteMetadata, cheerio }) => {
-    const page = parseInt(frag.page, 10);
+    const { data } = frag.matter;
+    const page = parseInt(data.page, 10);
     const paginate = parseInt(siteMetadata.userConfig.paginate, 10);
     const totPages = (parseInt(siteMetadata.articlesCount / paginate, 10)) +
         (siteMetadata.articlesCount % paginate ? 1 : 0);

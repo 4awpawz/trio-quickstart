@@ -1,5 +1,5 @@
 module.exports = ({ $, frag, siteMetadata }) => {
-    const fmtCategory = frag.forCategory.join("/");
+    const fmtCategory = frag.matter.data.forCategory.join("/");
     // category under title
     $("div.category").append(fmtCategory);
     // articles list

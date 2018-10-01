@@ -1,9 +1,9 @@
 module.exports = ({ $, frag, siteMetadata }) => {
     // tag under title
-    $("div.tag").append(frag.forTag);
+    $("div.tag").append(frag.matter.data.forTag);
     // articles list
     const cat = siteMetadata.sortedTagCatalog.find(item =>
-        item.tag === frag.forTag);
+        item.tag === frag.matter.data.forTag);
     cat.related.forEach(item => {
         $("ul.blog__articles")
             .append(`<li><a data-trio-link href="${item.url}">${item.title}</a></li>`);
