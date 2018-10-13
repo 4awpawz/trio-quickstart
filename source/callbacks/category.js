@@ -7,13 +7,20 @@ module.exports = ({ $, frag, siteMetadata }) => {
         return item.category === fmtCategory;
     });
     cat.related.forEach(item => {
-        $("ul.blog__articles")
-            .append(`<li><a data-trio-link href="${item.url}">${item.title}</a></li>`);
+        $("ul.blog__articles").append(`
+            <li>
+                <a data-trio-link href="${item.url}">${item.title}</a>
+            </li>
+        `);
     });
     // categories list
     const $target = $("ul.blog__categories-list");
     siteMetadata.categoriesCatalog
         .forEach(item => {
-            $target.append(`<li class="blog__categories-list-item"><a data-trio-link href="/${siteMetadata.userConfig.blogFolderName}/category/${item.category}">${item.category}</a></li>`);
+            $target.append(`
+                <li class="blog__categories-list-item">
+                    <a data-trio-link href="/${siteMetadata.userConfig.blogFolderName}/category/${item.category}">${item.category}</a>
+                </li>
+            `);
         });
 };

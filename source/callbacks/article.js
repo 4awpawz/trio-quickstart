@@ -2,7 +2,11 @@ const fillTagsList = ($target, data, blogFolderName) => {
     data.sort()
         .forEach(item => {
             const fixedTag = item.replace(" ", "");
-            $target.append(`<li class="article__tags-list-item"><a class="article__link article__link "data-trio-link href="/${blogFolderName}/tag/${fixedTag}">${item}</a></li>`);
+            $target.append(`
+                <li class="article__tags-list-item">
+                    <a class="article__link article__link "data-trio-link href="/${blogFolderName}/tag/${fixedTag}">${item}</a>
+                </li>
+            `);
         });
 };
 
@@ -24,7 +28,16 @@ module.exports = ({ $, frag, siteMetadata }) => {
     frag.relatedArticlesByTagFlattened.forEach(item => {
         const ra = siteMetadata.articlesCatalog.find(rel => item.id === rel.id);
         $relatedArticlesList
-            .append(`<li class="article__related-articles-list-item"><a class="article__link article__link" data-trio-link href="${item.url}"><div class="article__related-article-title">${item.title}</div><div class="article__related-article-subtitle">${ra.matter.data.subtitle}</div><div class="article__related-article-date">${item.date}</div><p class="article__related-article-excerpt">${item.excerpt}</p></a></li>`);
+            .append(`
+                <li class="article__related-articles-list-item">
+                    <a class="article__link article__link" data-trio-link href="${item.url}">
+                        <div class="article__related-article-title">${item.title}</div>
+                        <div class="article__related-article-subtitle">${ra.matter.data.subtitle}</div>
+                        <div class="article__related-article-date">${item.date}</div>
+                        <p class="article__related-article-excerpt">${item.excerpt}</p>
+                    </a>
+                </li>
+            `);
     });
 
     // tags lists
