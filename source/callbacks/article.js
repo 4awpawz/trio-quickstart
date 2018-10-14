@@ -4,7 +4,7 @@ const fillTagsList = ($target, data, blogFolderName) => {
             const fixedTag = item.replace(" ", "");
             $target.append(/* html */`
                 <li class="article__tags-list-item">
-                    <a class="article__link article__link "data-trio-link href="/${blogFolderName}/tag/${fixedTag}">${item}</a>
+                    <a class="article__link" data-trio-link href="/${blogFolderName}/tag/${fixedTag}">${item}</a>
                 </li>
             `);
         });
@@ -29,7 +29,7 @@ module.exports = ({ $, frag, siteMetadata }) => {
         const ra = siteMetadata.articlesCatalog.find(rel => item.id === rel.id);
         $relatedArticlesList.append(/* html */`
             <li class="article__related-articles-list-item">
-                <a class="article__link article__link" data-trio-link href="${item.url}">
+                <a class="article__link" data-trio-link href="${item.url}">
                     <div class="article__related-article-title">${item.title}</div>
                     <div class="article__related-article-subtitle">${ra.matter.data.subtitle}</div>
                     <div class="article__related-article-date">${item.date}</div>
