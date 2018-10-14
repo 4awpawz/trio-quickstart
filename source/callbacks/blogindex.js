@@ -1,6 +1,6 @@
 const createArticleMediaObject = (article, cheerio) => {
     const { data } = article.matter;
-    const $mediaObj = cheerio.load(`
+    const $mediaObj = cheerio.load(/* html */`
         <li id="article-${article.id}">
             <a data-trio-link href="${article.url}">
                 <article class="article-media-object">
@@ -57,7 +57,7 @@ module.exports = ({ $, frag, siteMetadata, cheerio }) => {
     siteMetadata.sortedTagCatalog
         .forEach(item => {
             const fixedTag = item.tag.replace(" ", "");
-            $target.append(`
+            $target.append(/* html */`
                 <li class="blog__tags-list-item">
                     <a data-trio-link href="/${siteMetadata.userConfig.blogFolderName}/tag/${fixedTag}">${item.tag}</a>
                 </li>

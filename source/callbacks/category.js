@@ -7,7 +7,7 @@ module.exports = ({ $, frag, siteMetadata }) => {
         return item.category === fmtCategory;
     });
     cat.related.forEach(item => {
-        $("ul.blog__articles").append(`
+        $("ul.blog__articles").append(/* html */`
             <li>
                 <a data-trio-link href="${item.url}">${item.title}</a>
             </li>
@@ -17,7 +17,7 @@ module.exports = ({ $, frag, siteMetadata }) => {
     const $target = $("ul.blog__categories-list");
     siteMetadata.categoriesCatalog
         .forEach(item => {
-            $target.append(`
+            $target.append(/* html */`
                 <li class="blog__categories-list-item">
                     <a data-trio-link href="/${siteMetadata.userConfig.blogFolderName}/category/${item.category}">${item.category}</a>
                 </li>
