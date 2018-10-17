@@ -1,12 +1,5 @@
 {
     "blogFolderName": "trioblog",
     "baseUrl": "/trioiopages",
-    "paginate": 2,
-    "personalization": {
-        "name": "Jeffrey Schwartz",
-        "twitter": "@jefftschwartz",
-        "github": "4awpawz",
-        "npm": "4awpawz",
-        "bio": "Husband, Father, Cat Wsiperer, Libertarian, JavaScript Junkie, Web Developer"
-    }
+    "paginate": 2
 }
