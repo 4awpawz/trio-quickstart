@@ -54,13 +54,12 @@ module.exports = ({ $, frag, siteMetadata, cheerio }) => {
 
     // tags list
     const $target = $("ul.blog__tags-list");
-    siteMetadata.sortedTagCatalog
-        .forEach(item => {
-            const fixedTag = item.tag.replace(" ", "");
-            $target.append(/* html */`
-                <li class="blog__tags-list-item">
-                    <a data-trio-link href="/${siteMetadata.userConfig.blogFolderName}/tag/${fixedTag}">${item.tag}</a>
-                </li>
-            `);
-        });
+    siteMetadata.sortedTagCatalog.forEach(item => {
+        const fixedTag = item.tag.replace(" ", "");
+        $target.append(/* html */`
+            <li class="blog__tags-list-item">
+                <a data-trio-link href="/${siteMetadata.userConfig.blogFolderName}/tag/${fixedTag}">${item.tag}</a>
+            </li>
+        `);
+    });
 };
