@@ -31,7 +31,7 @@ module.exports = ({ $, frag, siteMetadata }) => {
                 <a class="article__link" data-trio-link href="${item.url}">
                     <div class="article__related-article-title">${item.title}</div>
                     <div class="article__related-article-subtitle">${relatedArticle.matter.data.subtitle}</div>
-                    <div class="article__related-article-date">${item.date}</div>
+                    <div class="article__related-article-date">${item.articleDate}</div>
                     <p class="article__related-article-excerpt">${item.excerpt}</p>
                 </a>
             </li>
