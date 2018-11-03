@@ -18,18 +18,18 @@ const createArticleMediaObject = (article, cheerio) => {
     return $mediaObj;
 };
 
-module.exports = ({ $, frag, siteMetadata, cheerio }) => {
-    const { data } = frag.matter;
-    const page = parseInt(data.page, 10);
-    const paginate = parseInt(siteMetadata.userConfig.paginate, 10);
-    const totPages = (parseInt(siteMetadata.articlesCount / paginate, 10)) +
-        (siteMetadata.articlesCount % paginate ? 1 : 0);
+module.exports = ({ $, page, site, cheerio }) => {
+    const { data } = page.matter;
+    const blogIndexPage = parseInt(data.page, 10);
+    const paginate = parseInt(site.userConfig.paginate, 10);
+    const totPages = (parseInt(site.articlesCount / paginate, 10)) +
+        (site.articlesCount % paginate ? 1 : 0);
 
     // articles list
-    if (siteMetadata.articlesCount) {
-        const iStart = paginate * (page - 1);
+    if (site.articlesCount) {
+        const iStart = paginate * (blogIndexPage - 1);
         const iEnd = iStart + paginate;
-        const articles = siteMetadata.articlesCatalog.slice(iStart, iEnd);
+        const articles = site.articlesCatalog.slice(iStart, iEnd);
         articles.forEach(article =>
             $("ul.blog__articles").append(createArticleMediaObject(article, cheerio).html())
         );
@@ -38,27 +38,27 @@ module.exports = ({ $, frag, siteMetadata, cheerio }) => {
     // blog page links
     const $newerAnchorTag = $("a.page-links__newer-link");
     const $olderAnchorTag = $("a.page-links__older-link");
-    if (page > 1) {
-        const newerPage = page - 1 === 1
-            ? `/${siteMetadata.userConfig.blogFolderName}`
-            : `/${siteMetadata.userConfig.blogFolderName}/${page - 1}`;
+    if (blogIndexPage > 1) {
+        const newerPage = blogIndexPage - 1 === 1
+            ? `/${site.userConfig.blogFolderName}`
+            : `/${site.userConfig.blogFolderName}/${blogIndexPage - 1}`;
         $newerAnchorTag.attr("href", newerPage);
     } else {
         $newerAnchorTag.addClass("page-links__newer-link--hidden");
     }
-    if (page < totPages) {
-        $olderAnchorTag.attr("href", `/${siteMetadata.userConfig.blogFolderName}/${page + 1}`);
+    if (blogIndexPage < totPages) {
+        $olderAnchorTag.attr("href", `/${site.userConfig.blogFolderName}/${blogIndexPage + 1}`);
     } else {
         $olderAnchorTag.addClass("page-links__older-link--hidden");
     }
 
     // tags list
     const $target = $("ul.blog__tags-list");
-    siteMetadata.sortedTagCatalog.forEach(item => {
+    site.sortedTagCatalog.forEach(item => {
         const fixedTag = item.tag.replace(" ", "");
         $target.append(/* html */`
             <li class="blog__tags-list-item">
-                <a data-trio-link href="/${siteMetadata.userConfig.blogFolderName}/tag/${fixedTag}">${item.tag}</a>
+                <a data-trio-link href="/${site.userConfig.blogFolderName}/tag/${fixedTag}">${item.tag}</a>
             </li>
         `);
     });

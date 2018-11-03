@@ -1,3 +1,3 @@
-module.exports = ({ $, siteMetadata }) => {
-    $("#trio-blog-link").attr("href", `/${siteMetadata.userConfig.blogFolderName}`);
+module.exports = ({ $, site }) => {
+    $("#trio-blog-link").attr("href", `/${site.userConfig.blogFolderName}`);
 };

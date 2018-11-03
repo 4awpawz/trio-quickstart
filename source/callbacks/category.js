@@ -1,9 +1,9 @@
-module.exports = ({ $, frag, siteMetadata }) => {
-    const fmtCategory = frag.matter.data.forCategory.join("/");
+module.exports = ({ $, page, site }) => {
+    const fmtCategory = page.matter.data.forCategory.join("/");
     // category under title
     $("div.category").append(fmtCategory);
     // articles list
-    const cat = siteMetadata.categoriesCatalog.find(item => {
+    const cat = site.categoriesCatalog.find(item => {
         return item.category === fmtCategory;
     });
     cat.related.forEach(item => {
@@ -15,11 +15,11 @@ module.exports = ({ $, frag, siteMetadata }) => {
     });
     // categories list
     const $target = $("ul.blog__categories-list");
-    siteMetadata.categoriesCatalog
+    site.categoriesCatalog
         .forEach(item => {
             $target.append(/* html */`
                 <li class="blog__categories-list-item">
-                    <a data-trio-link href="/${siteMetadata.userConfig.blogFolderName}/category/${item.category}">${item.category}</a>
+                    <a data-trio-link href="/${site.userConfig.blogFolderName}/category/${item.category}">${item.category}</a>
                 </li>
             `);
         });

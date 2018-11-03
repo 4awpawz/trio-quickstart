@@ -9,10 +9,10 @@ const fillTagsList = ($target, data, blogFolderName) => {
     });
 };
 
-module.exports = ({ $, frag, siteMetadata }) => {
-    const { data } = frag.matter;
+module.exports = ({ $, page, site }) => {
+    const { data } = page.matter;
     $("h1.article__title").append(data.title);
-    $("div.article__date").append(frag.articleDate);
+    $("div.article__date").append(page.articleDate);
     if (data.image) {
         $("img.banner__image").attr("src", `/media/${data.image}`);
     }
@@ -24,8 +24,8 @@ module.exports = ({ $, frag, siteMetadata }) => {
 
     // related articles list
     const $relatedArticlesList = $("ul.article__related-articles-list");
-    frag.relatedArticlesByTagFlattened.forEach(item => {
-        const relatedArticle = siteMetadata.articlesCatalog.find(rel => item.id === rel.id);
+    page.relatedArticlesByTagFlattened.forEach(item => {
+        const relatedArticle = site.articlesCatalog.find(rel => item.id === rel.id);
         $relatedArticlesList.append(/* html */`
             <li class="article__related-articles-list-item">
                 <a class="article__link" data-trio-link href="${item.url}">
@@ -40,20 +40,20 @@ module.exports = ({ $, frag, siteMetadata }) => {
 
     // tags lists
     const $articleTagList = $("section.article__tags").find("ul.article__tags-list");
-    fillTagsList($articleTagList, data.tag, siteMetadata.userConfig.blogFolderName);
+    fillTagsList($articleTagList, data.tag, site.userConfig.blogFolderName);
     const $allTagsList = $("section.article__all-tags").find("ul.article__tags-list");
-    fillTagsList($allTagsList, siteMetadata.sortedTagCatalog.map(item => item.tag), siteMetadata.userConfig.blogFolderName);
+    fillTagsList($allTagsList, site.sortedTagCatalog.map(item => item.tag), site.userConfig.blogFolderName);
 
     // previous & next article links
     const $nextLink = $("a.page-links__newer-link");
     const $prevLink = $("a.page-links__older-link");
-    if (frag.nextArticleUrl) {
-        $nextLink.attr("href", frag.nextArticleUrl);
+    if (page.nextArticleUrl) {
+        $nextLink.attr("href", page.nextArticleUrl);
     } else {
         $nextLink.addClass("page-links__newer-link--hidden");
     }
-    if (frag.previousArticleUrl) {
-        $prevLink.attr("href", frag.previousArticleUrl);
+    if (page.previousArticleUrl) {
+        $prevLink.attr("href", page.previousArticleUrl);
     } else {
         $prevLink.addClass("page-links__older-link--hidden");
     }
