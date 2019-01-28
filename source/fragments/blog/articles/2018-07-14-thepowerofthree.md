@@ -10,8 +10,8 @@ callback:
   - article.js
   - showCurrentPageInHeader.js
 category:
-  - Web Development
-  - Trio
+  - web development
+  - trio
 tag:
   - javascript
   - html

@@ -10,7 +10,7 @@ callback:
   - article.js
   - showCurrentPageInHeader.js
 category:
-  - Web Development
+  - web development
 tag:
   - javascript
   - html
